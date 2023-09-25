@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 function App() {
 
@@ -9,6 +9,7 @@ function App() {
   const [bracelets, setBracelets] = useState(Array)
 
   const countLetters = (value) => {
+    value = value.replaceAll(" ","")
     value.split("").forEach((letter) => {
       alphabetCounter[letter]++
       setCounter((alphabetCounter) => { return alphabetCounter })
@@ -18,38 +19,43 @@ function App() {
   const handleSubmit = (event) => {
     event.preventDefault();
     let value = event.target.text.value
-    setBracelets([...bracelets, value]);
+    if(value.replaceAll(" ","").length >= 1)
+      setBracelets([...bracelets, value]);
     countLetters(value)
   }
 
   return (
-    <main>
+    <div className='main'>
       <container>
 
         <form onSubmit={handleSubmit}>
-          <label>
-            Bracelet Text:
-            <input type="text" name="text" />
-          </label>
+          <label>Bracelet Text:</label>
+          <input type="text" name="text" />
           <input type="submit" value="Submit" />
         </form>
 
-        {
-          Object.entries(bracelets).map(([key, text]) => {
-            return <div>{text}</div>
-          })
-        }
+        <div className="bracelets">
+          BRACELETS:
+          {
+            Object.entries(bracelets).map(([key, text]) => {
+              return <p className='bracelet'>{text}</p>
+            })
+          }
+        </div>
       </container>
 
-      <aside>
-        TOTAL BEADS:
-        {
-          Object.entries(alphabetCounter).map(([letter, count]) => {
-            return <div>{letter}{count}</div>
-          })
-        }
-      </aside>
-    </main>
+      <container>
+        <label>TOTAL BEADS:</label>
+        <div className='counter'>
+
+          {
+            Object.entries(alphabetCounter).map(([letter, count]) => {
+              return <p>{letter}: {count} </p>
+            })
+          }
+        </div>
+      </container>
+    </div>
   );
 }
 
