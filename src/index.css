@@ -1,50 +1,113 @@
-*{
-  font-size: 20pt;
-}
-.main{
-  display: flex;
-  margin: 3vh;
-  flex-direction: row;
-  justify-content: space-evenly;
-}
+  @import url('https://fonts.googleapis.com/css2?family=Chivo:wght@100;400;600&family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
 
-container{
-  width: 30vw;
-  display: flex;
-  flex-direction: column;
-  margin: 3vh;
-  padding: 1vh;
-}
+  * {
+    font-size: 20pt;
+    font-family: 'Chivo', sans-serif;
+    font-weight: 800;
+  }
 
-form{
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  height: 15vh;
-  justify-content: space-between;  
-  padding: 5vh 0; 
-}
+  body {
+    background-image: url(../public/svg/bg-img.svg);
+  }
 
-label{
-  align-self: center;
-}
+  .main {
+    display: flex;
+    margin: 3vh;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+  }
 
-.bracelets{
-  padding: 10vh 0;
-}
+  .main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
-.bracelet{
-  padding: 1vh;
-  background-color: lightgray;
-}
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    font-style: italic;
+    width: 9em;
+    text-align: center;
+    margin: 1em 0;
+  }
 
-container p{
-  margin: 2vh;
-}
+  label,
+  .bracelets {
+    color: #FF6928;
+  }
 
-.counter{
-  display: flex;
-  flex-direction: column;
-  max-height: 70vh;
-  flex-wrap: wrap;
-}
+  container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 4.5em;
+    justify-content: space-between;
+    padding: 0 0 1em;
+    width: 13.5em;
+  }
+
+  .button {
+    cursor: pointer;
+    background-color: #FF6928;
+    color: #FDF2EC;
+    font-size: 24px;
+    padding: 5px;
+    border-radius: 10px;
+    border: none;
+    width: 15em;
+    height: 1.6em;
+  }
+
+  .button:hover {
+    background-color: #ea4600;
+  }
+
+  label {
+    text-align: center;
+  }
+
+  .bracelets-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .bracelets {
+    padding: 1em 0 2em 0;
+    text-align: center;
+  }
+
+  .bracelet {
+    padding: 0.5em;
+    background-color: #E3B4FA;
+    border-radius: 50px;
+    color: #FDF2EC;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 400;
+    display: inline-block;
+    margin-right: 10px;
+  }
+
+  container p {
+    margin: 2vh;
+  }
+
+  .counter {
+    display: flex;
+    flex-direction: column;
+    max-height: 70vh;
+    flex-wrap: wrap;
+  }
+
+  .counter p::first-letter {
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    font-style: italic;
+  }
